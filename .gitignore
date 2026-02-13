@@ -1,0 +1,21 @@
+# data and outputs
+data/
+outputs/
+*.xlsx
+*.csv
+
+# local / secrets
+.env
+.DS_Store
+Thumbs.db
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# playwright / selenium debug
+*.png
+*.html
+*.log
