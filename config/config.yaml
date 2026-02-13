@@ -2,16 +2,12 @@ project_name: azstreamcat
 input_dir: data/raw
 output_dir: outputs
 
-# You can drop any mix of CSV/XLSX in data/raw
-# The pipeline will read all supported files.
 input_globs:
   - "*.csv"
   - "*.xlsx"
 
-# Optional: choose a standard coordinate system for exports
 export_crs_epsg: 4326
 
-# Column name guesses across agencies
 column_candidates:
   site_id: ["site_id", "siteid", "station_id", "stationid", "gage_id", "gageid", "usgs_site_no", "site_no"]
   operator: ["operator", "agency", "network", "owner", "provider"]
@@ -24,14 +20,12 @@ column_candidates:
   end_date: ["end_date", "stop_date", "end", "last_date"]
   url: ["url", "link", "site_url", "web"]
 
-# Rules
 rules:
   drop_if_missing_coords: false
   flag_if_coords_outside_az: true
   fuzzy_match_names: true
   fuzzy_threshold: 90
 
-# Output files
 outputs:
   master_table: "azstreamcat_master.csv"
   qa_report: "azstreamcat_qa_report.csv"
